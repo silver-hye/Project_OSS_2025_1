@@ -9,7 +9,8 @@ def main():
         print("1. 지출 추가")
         print("2. 지출 목록 보기")
         print("3. 총 지출 보기")
-        print("4. 종료")
+        print("4. 지출 내역 저장")  
+        print("5. 종료")
         choice = input("선택 > ")
 
         if choice == "1":
@@ -28,9 +29,13 @@ def main():
         elif choice == "3":
             budget.total_spent()
 
-        elif choice == "4":
-            print("가계부를 종료합니다.")
-            break
+        elif choice == '4':
+             filename = input("저장할 파일 이름 (예: expenses.json): ")
+             budget.save_to_file(filename)  
+
+        elif choice == '5':
+           print("프로그램 종료")
+           break
 
         else:
             print("잘못된 선택입니다.\n")
