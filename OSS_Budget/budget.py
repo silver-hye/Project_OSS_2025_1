@@ -37,10 +37,11 @@ class Budget:
                print("설정된 지출 목표가 없습니다.\n")
                return
 
-    print("\n[지출 목표 진행 상황]")
-    for category, goal in self.goals.items():
-        spent = self.get_total_by_category(category)
-        percent = min(100, round((spent / goal) * 100)) if goal else 0
-        remain = goal - spent
-        print(f"{category} 목표: {goal}원 | 현재 지출: {spent}원 → {percent}% 소진 (남은 예산: {remain}원)")
-    print()
+        print("\n[지출 목표 진행 상황]")
+
+        for category, goal in self.goals.items():
+            spent = self.get_total_by_category(category)
+            percent = min(100, round((spent / goal) * 100)) if goal else 0
+            remain = goal - spent
+            print(f"{category} 목표: {goal}원 | 현재 지출: {spent}원 → {percent}% 소진 (남은 예산: {remain}원)")
+        print()
